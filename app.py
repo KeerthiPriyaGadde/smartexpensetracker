@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 import mysql.connector
+import os
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import date
 
@@ -11,10 +12,10 @@ app.secret_key = "smart_expense_secret_key"
 
 def get_db_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="vamsikeerthi@2024",
-        database="expense_tracker"
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_NAME")
     )
 
 
