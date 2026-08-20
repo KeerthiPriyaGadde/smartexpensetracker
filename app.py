@@ -224,7 +224,4 @@ def logout():
     return redirect("/login")
 
 
-# ---------------- RUN APPLICATION ----------------
-
-if __name__ == "__main__":
-    app.run(debug=True)
+# ---------------- RUN APPLICATION -----------------
